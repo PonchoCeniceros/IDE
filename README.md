@@ -211,15 +211,22 @@ git clone https://github.com/tu-usuario/fullstack-workspace.git ~/.config/nvim
 nvim
 ```
 
-## 🤝 Contribuciones
+**NOTA:** Recuerda instalar los LSP y formatters requeridos:
 
-¡Las contribuciones son bienvenidas! Este workspace está diseñado para evolucionar con las mejores prácticas de desarrollo fullstack.
-
-### 📋 **To-Do:**
-- [ ] Agregar soporte para más lenguajes
-- [ ] Configuraciones específicas por proyecto
-- [ ] Integración con más herramientas de desarrollo
-
----
-
-**⭐ Star este repositorio si te ayuda en tu desarrollo diario!**
+```lua
+return {
+  {
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    opts = {
+      ensure_installed = {
+        "prettier",      -- Tu formateador de JSON/JS
+        "typescript-language-server", -- El servidor de TS (tsserver/vtsls)
+        "stylua",        -- Recomendado para tus configs de Lua
+        "selene",        -- Linter de Lua
+      },
+      auto_update = true,
+      run_on_start = true,
+    },
+  },
+}
+```
