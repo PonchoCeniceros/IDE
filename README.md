@@ -1,6 +1,6 @@
 <h1 align="left">
   <img src="https://github.com/PonchoCeniceros/IDE/blob/ide/utils/imgs/main.svg" width="90" align="absmiddle">
-  &nbsp;&nbsp;
+  &nbsp;
   IDE
 </h1>
 
