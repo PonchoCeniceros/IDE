@@ -1,9 +1,56 @@
 <h1 align="left">
   <img src="https://github.com/PonchoCeniceros/IDE/blob/ide/utils/imgs/main.svg" width="90" align="absmiddle">
-  IDE
+   IDE
 </h1>
 
 Mi configuración personal de [LazyVim](https://github.com/LazyVim/LazyVim).
+
+## Instalación limpia
+```bash
+# clonar el repositorio
+git clone https://github.com/tu-usuario/fullstack-workspace.git ~/.config/nvim
+
+# iniciar neovim
+nvim
+```
+```bash
+# Respaldar tu config
+mv ~/.config/nvim ~/.config/nvim.backup
+
+# Borrar plugins instalados
+rm -rf ~/.local/share/nvim/lazy
+
+# Borrar cache y estado
+rm -rf ~/.cache/nvim
+rm -rf ~/.local/state/nvim
+
+# Borrar datos de Mason
+rm -rf ~/.local/share/nvim/mason
+
+# Restaurar tu config limpia
+mv ~/.config/nvim.backup ~/.config/nvim
+```
+
+## Temas Disponibles
+Puedes seleccionar el tema al iniciar Neovim utilizando la variable de entorno `NVIM_THEME`:
+
+```bash
+NVIM_THEME=carbonfox nvim  # tema principal - Tonos negro/gris profesionales
+NVIM_THEME=catppuccin nvim # tema secundario - colores con menos contraste
+NVIM_THEME=onedark nvim    # tercera opción - útil para distinguir entre varias terminales abiertas
+```
+
+Usa el script `theme-selector.sh` para gestionar temas fácilmente:
+
+```bash
+# ver tema actual
+./theme-selector.sh
+
+# cambiar tema predeterminado
+./theme-selector.sh carbonfox
+./theme-selector.sh onedark
+./theme-selector.sh catppuccin
+```
 
 ## Cheatsheet
 
@@ -56,52 +103,3 @@ Mi configuración personal de [LazyVim](https://github.com/LazyVim/LazyVim).
 | Comando | `:CsvViewEnable` | Comando | Habilitar vista CSV |
 | Comando | `:CsvViewDisable` | Comando | Deshabilitar vista CSV |
 | Comando | `:CsvViewToggle` | Comando | Alternar vista CSV |
-
-
-## Temas Disponibles
-Puedes seleccionar el tema al iniciar Neovim utilizando la variable de entorno `NVIM_THEME`:
-
-```bash
-NVIM_THEME=carbonfox nvim  # tema principal - Tonos negro/gris profesionales
-NVIM_THEME=catppuccin nvim # tema secundario - colores con menos contraste
-NVIM_THEME=onedark nvim    # tercera opción - útil para distinguir entre varias terminales abiertas
-```
-
-Usa el script `theme-selector.sh` para gestionar temas fácilmente:
-
-```bash
-# ver tema actual
-./theme-selector.sh
-
-# cambiar tema predeterminado
-./theme-selector.sh carbonfox
-./theme-selector.sh onedark
-./theme-selector.sh catppuccin
-```
-
-## 📦 instalación limpia
-```bash
-# clonar el repositorio
-git clone https://github.com/tu-usuario/fullstack-workspace.git ~/.config/nvim
-
-# iniciar neovim
-nvim
-```
-
-  ```bash
-# Respaldar tu config
-mv ~/.config/nvim ~/.config/nvim.backup
-
-# Borrar plugins instalados
-rm -rf ~/.local/share/nvim/lazy
-
-# Borrar cache y estado
-rm -rf ~/.cache/nvim
-rm -rf ~/.local/state/nvim
-
-# Borrar datos de Mason
-rm -rf ~/.local/share/nvim/mason
-
-# Restaurar tu config limpia
-mv ~/.config/nvim.backup ~/.config/nvim
-```
