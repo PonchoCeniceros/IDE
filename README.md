@@ -1,5 +1,5 @@
 <h1 align="left">
-  <img src="https://github.com/PonchoCeniceros/ponchoceniceros_x_lazyvim/blob/main/utils/imgs/main.svg" width="90" align="absmiddle">
+  <img src="https://github.com/PonchoCeniceros/IDE/blob/ide/utils/imgs/main.svg" width="90" align="absmiddle">
   IDE
 </h1>
 
