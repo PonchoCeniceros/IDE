@@ -1,232 +1,106 @@
-# Fullstack Workspace
+<h1 align="left">
+  <img src="https://github.com/PonchoCeniceros/IDE/blob/ide/utils/imgs/main.svg" width="90" align="absmiddle">
+  &nbsp;
+  IDE
+</h1>
 
-![Neovim Badge](https://img.shields.io/badge/Neovim-57A143?logo=neovim&logoColor=fff&style=for-the-badge)![LazyVim Badge](https://img.shields.io/badge/LazyVim-2E7DE9?logo=lazyvim&logoColor=fff&style=for-the-badge)![TypeScript Badge](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff&style=for-the-badge)![Python Badge](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff&style=for-the-badge)![React Badge](https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=for-the-badge)
+Mi configuración personal de [LazyVim](https://github.com/LazyVim/LazyVim).
 
-<p align="center">
-  <img src="https://github.com/PonchoCeniceros/ponchoceniceros_x_lazyvim/blob/main/utils/imgs/main.png">
-</p>
+## Instalación limpia
+```bash
+# clonar el repositorio
+git clone https://github.com/tu-usuario/fullstack-workspace.git ~/.config/nvim
 
-🔧 **Entorno de desarrollo completo** con 💤 [LazyVim](https://github.com/LazyVim/LazyVim) optimizado para **fullstack development** con TypeScript, React y Python.
+# iniciar neovim
+nvim
+```
+```bash
+# Respaldar tu config
+mv ~/.config/nvim ~/.config/nvim.backup
 
-> **Fullstack Workspace**: Configuración profesional de Neovim para productividad máxima en desarrollo web y Machine Learning.
+# Borrar plugins instalados
+rm -rf ~/.local/share/nvim/lazy
 
-## 🎨 Selección de Tema
+# Borrar cache y estado
+rm -rf ~/.cache/nvim
+rm -rf ~/.local/state/nvim
 
-Esta configuración incluye tres temas de color optimizados para programación:
+# Borrar datos de Mason
+rm -rf ~/.local/share/nvim/mason
 
-### Temas Disponibles
-- **`carbonfox`** - Tonos negro/gris profesionales ⭐ (predeterminado)
-- **`onedark`** - Tema oscuro profesional (estilo "cool")
-- **`catppuccin`** - Tema popular (sabor "mocha")
+# Restaurar tu config limpia
+mv ~/.config/nvim.backup ~/.config/nvim
+```
 
-### Selector de Temas
+## Temas Disponibles
+Puedes seleccionar el tema al iniciar Neovim utilizando la variable de entorno `NVIM_THEME`:
+
+```bash
+NVIM_THEME=carbonfox nvim  # tema principal - Tonos negro/gris profesionales
+NVIM_THEME=catppuccin nvim # tema secundario - colores con menos contraste
+NVIM_THEME=onedark nvim    # tercera opción - útil para distinguir entre varias terminales abiertas
+```
 
 Usa el script `theme-selector.sh` para gestionar temas fácilmente:
 
-**Ver tema actual:**
 ```bash
+# ver tema actual
 ./theme-selector.sh
-```
 
-**Cambiar tema:**
-```bash
+# cambiar tema predeterminado
 ./theme-selector.sh carbonfox
 ./theme-selector.sh onedark
 ./theme-selector.sh catppuccin
 ```
 
-### Uso con Variable de Entorno
+## Cheatsheet
 
-También puedes seleccionar el tema al iniciar Neovim utilizando la variable de entorno `NVIM_THEME`:
+| 📝 Edición de Código | 🔍 Búsqueda y Navegación | 🔄 Buffers y Ventanas | 🚀 Productividad | 🎯 LSP y Debug |
+|--------------------|------------------------|----------------------|-----------------|--------------|
+| `i` Insertar después del cursor | `<leader>ff` Buscar archivos | `<leader>bb` Buffer anterior | `<leader>w` Guardar archivo | `<leader>xx` Warnings/errores LSP |
+| `a` Insertar antes del cursor | `<leader>fg` Buscar texto (grep) | `Shift + →` Buffer siguiente | `<leader>q` Cerrar Neovim | `<leader>ls` Símbolos del buffer |
+| `I` Insertar al final de línea | `<leader>fb` Buffers abiertos | `Shift + ←` Buffer anterior | `<leader>e` Explorador archivos | `<leader>lR` Rename proyecto |
+| `A` Insertar al inicio de línea | `<leader>fh` Ayuda | `<leader>bd` Cerrar buffer | `<leader>gg` Git status | `<leader>la` Code actions |
+| `gcc` Comentar línea | `<leader>fr` Archivos recientes | `<leader>bD` Cerrar otros buffers | `<leader>gl` Git log | `<leader>le` Diagnósticos |
+| `gc` + mov. Comentar múltiple | `gd` Ir a definición | `Shift + ↓↓` Ventana superior | `<leader>ca` Code actions | `<leader>ld` Ir a definición |
+| `yi"` Copiar entre comillas | `gr` Ir a referencias | `Shift + ↑↑` Ventana inferior | `<leader>rn` Renombrar variable | `<leader>lr` Mostrar referencias |
+| `ci"` Cambiar entre comillas | `gi` Ir a implementación | `Shift + ←←` Ventana izquierda | | `<leader>li` Mostrar info |
+| `di"` Eliminar entre comillas | `K` Documentación flotante | `Shift + →→` Ventana derecha | | `F5` Start / Continue debug |
+| | | `<S-Left>` Buffer anterior | | `F10` Step over |
+| | | `<S-Right>` Buffer siguiente | | |
+| | | `<C-w>s` Split horizontal | | |
+| | | `<C-w>v` Split vertical | | |
+| | | `<C-w>c` Cerrar ventana | | |
 
-**Para usar `carbonfox` (recomendado):**
-```bash
-NVIM_THEME=carbonfox nvim
-```
 
-**Para usar `onedark`:**
-```bash
-NVIM_THEME=onedark nvim
-```
+## OpenCode.nvim
 
-**Para usar `catppuccin`:**
-```bash
-NVIM_THEME=catppuccin nvim
-```
+| Keymap | Modo | Acción |
+|------|------|-------|
+| `<leader>aa` | Normal | Toggle OpenCode |
+| `<leader>as` | Normal / Visual | Seleccionar código y enviar |
+| `<leader>ai` | Normal / Visual | Pregunta libre |
+| `<leader>aI` | Normal / Visual | Pregunta con contexto (`@this`) |
+| `<leader>ab` | Normal / Visual | Preguntar sobre el archivo (`@file`) |
+| `<leader>ap` | Normal / Visual | Prompt con contexto actual |
+| `<leader>ape` | Normal / Visual | Explicar código |
+| `<leader>apf` | Normal / Visual | Arreglar código |
+| `<leader>apd` | Normal / Visual | Diagnosticar problemas |
+| `<leader>apr` | Normal / Visual | Code review |
+| `<leader>apt` | Normal / Visual | Generar tests |
+| `<leader>apo` | Normal / Visual | Optimizar código |
 
-**Por defecto (carbonfox):**
-```bash
-nvim
-```
 
-### 🌟 Características de CarbonFox
+## csvview.nvim
 
-El tema `carbonfox` está optimizado para:
-- **Stack MERN** - Contraste ideal para JavaScript/TypeScript
-- **Python/ML** - Sintaxis clara para librerías científicas
-- **Productividad** - Menor fatiga visual con tonos suaves
-- **Paleta**: Fondo oscuro `#161616` con acentos grises profesionales
-
-## 🎯 Stack Soportado
-
-Este workspace está optimizado para:
-
-### 🌐 **Desarrollo Web Fullstack**
-- **TypeScript** - Tipado estático y autocompletado inteligente
-- **React/Next.js** - Desarrollo de componentes con hooks y TypeScript
-- **Node.js** - Backend y desarrollo de APIs
-- **JavaScript** - Soporte completo con ES6+
-
-### 🐍 **Python & Machine Learning**
-- **Python** - LSP con Pyright para análisis estático
-- **Data Science** - Soporte para pandas, numpy, matplotlib
-- **Machine Learning** - Autocompletado para scikit-learn, TensorFlow, PyTorch
-- **Jupyter** - Integración con notebooks de investigación
-
-### 🛠️ **Herramientas de Productividad**
-- **Git** - Integración completa con Git commands
-- **Testing** - Soporte para Jest, pytest, testing-library
-- **Formatting** - Prettier, Black, y formateo automático
-- **Linting** - ESLint, Pylint, y análisis de código
-
-## ⚡ Comandos Más Frecuentes
-
-### 🎹 Notación `<leader>`
-- `<leader>` = barra espaciadora (`<Space>`) por defecto en LazyVim
-- `<C-w>` = `Ctrl + w`
-- `<S-Tab>` = `Shift + Tab`
-- `<Tab>` = `Tab`
-
-### 📝 Edición de Código
-| Comando | Descripción |
-|---------|-------------|
-| `i` | Insertar después del cursor *(invertido)* |
-| `a` | Insertar antes del cursor *(invertido)* |
-| `I` | Insertar al final de línea *(invertido)* |
-| `A` | Insertar al inicio de línea *(invertido)* |
-| `gcc` | Comentar/descomentar línea actual |
-| `gc` + movimiento | Comentar/descomentar múltiples líneas |
-| `yi"` | Copiar texto entre comillas |
-| `ci"` | Cambiar texto entre comillas |
-| `di"` | Eliminar texto entre comillas |
-
-### 🔍 Búsqueda y Navegación
-| Comando | Descripción |
-|---------|-------------|
-| `<leader>ff` | Buscar archivos por nombre |
-| `<leader>fg` | Buscar texto en archivos (live grep) |
-| `<leader>fb` | Buscar buffers abiertos |
-| `<leader>fh` | Buscar ayuda |
-| `<leader>fr` | Buscar archivos recientes |
-| `gd` | Ir a definición |
-| `gr` | Ir a referencias |
-| `gi` | Ir a implementación |
-| `K` | Mostrar documentación flotante mejorada |
-
-### 🔄 Gestión de Buffers y Ventanas
-| Comando | Descripción |
-|---------|-------------|
-| `<leader>bb` | Cambiar al buffer anterior |
-| `<Tab>` / `<S-Tab>` | Navegar entre buffers |
-| `<leader>bd` | Cerrar buffer |
-| `<leader>bD` | Cerrar todos los buffers excepto el actual |
-| `<S-Left><S-Left>` | Navegar a ventana izquierda |
-| `<S-Right><S-Right>` | Navegar a ventana derecha |
-| `<S-Up><S-Up>` | Navegar a ventana superior |
-| `<S-Down><S-Down>` | Navegar a ventana inferior |
-| `<S-Left>` | Buffer anterior |
-| `<S-Right>` | Buffer siguiente |
-| `<C-w>s` | Dividir ventana horizontalmente |
-| `<C-w>v` | Dividir ventana verticalmente |
-| `<C-w>c` | Cerrar ventana actual |
-
-### 🚀 Productividad
-| Comando | Descripción |
-|---------|-------------|
-| `<leader>w` | Guardar archivo |
-| `<leader>q` | Cerrar Neovim |
-| `<leader>e` | Explorador de archivos |
-| `<leader>gg` | Git status |
-| `<leader>gl` | Git log |
-| `<leader>ca` | Code actions |
-| `<leader>rn` | Renombrar variable |
-
-### 🎯 LSP y Debugging
-| Comando | Descripción |
-|---------|-------------|
-| `<leader>xx` | Mostrar warnings y errores señalados por el LSP |
-| `<leader>ls` | Mostrar símbolos del buffer |
-| `<leader>lR` | Renombrar en todo el proyecto |
-| `<leader>la` | Code actions |
-| `<leader>le` | Mostrar diagnósticos |
-| `<leader>ld` | Ir a definición |
-| `<leader>lr` | Mostrar referencias |
-| `<leader>li` | Mostrar información |
-| `F10` | Step over (debug) |
-| `F5` | Start/Continue debug |
-
-## ⚡ Keymaps Personalizados
-
-Esta configuración incluye keymaps personalizados para mejorar la productividad:
-
-### 🔄 Navegación de Ventanas y Buffers
-Se han reemplazado los keymaps tradicionales `<C-h/j/k/l>` y `<S-h/l>` por versiones más intuitivas:
-
-- **Ventanas**: `Shift` + **doble flecha** → Navegación entre ventanas
-- **Buffers**: `Shift` + **flecha** → Navegación entre buffers
-
-**Ventajas:**
-- Más intuitivo: flechas indican dirección
-- Sin conflictos con keymaps de LazyVim
-
-## 🌟 Mejoras de Documentación Flotante
-
-Tu configuración ahora incluye **lspsaga.nvim** con mejoras específicas:
-
-### ✨ **Características Principales**
-- **Ventanas flotantes mejoradas** con bordes redondeados
-- **Icons visuales** para diferentes tipos de elementos (🔧 funciones, 🏛️ clases, etc.)
-- **Soporte multi-lenguaje** (TypeScript, Python, JavaScript, React)
-- **Navegación de enlaces** con `gx` en documentación
-
-### 🔍 **Para TypeScript Interfaces**
-- Al hacer hover sobre una interface, verás:
-  - Lista completa de métodos disponibles
-  - Firmas de funciones con tipos de parámetros
-  - Documentación integrada sin necesidad de navegar
-  - Tipos de retorno explícitos
-
-### 🐍 **Para Python**
-- Soporte mejorado para docstrings
-- Información de funciones con tipos
-- Documentación de módulos clara y legible
-
-## 📦 Instalación
-
-```bash
-# Clonar el repositorio
-git clone https://github.com/tu-usuario/fullstack-workspace.git ~/.config/nvim
-
-# Iniciar Neovim
-nvim
-```
-
-**NOTA:** Recuerda instalar los LSP y formatters requeridos:
-
-```lua
-return {
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    opts = {
-      ensure_installed = {
-        "prettier",      -- Tu formateador de JSON/JS
-        "typescript-language-server", -- El servidor de TS (tsserver/vtsls)
-        "stylua",        -- Recomendado para tus configs de Lua
-        "selene",        -- Linter de Lua
-      },
-      auto_update = true,
-      run_on_start = true,
-    },
-  },
-}
-```
+| Tipo | Atajo / Comando | Modo | Acción |
+|-----|-----------------|------|-------|
+| Text object | `if` | Operador / Visual | Seleccionar **contenido interno del campo** |
+| Text object | `af` | Operador / Visual | Seleccionar **campo completo** |
+| Navegación | `<Tab>` | Normal / Visual | Ir al **siguiente campo** (fin del campo) |
+| Navegación | `<S-Tab>` | Normal / Visual | Ir al **campo anterior** (fin del campo) |
+| Navegación | `<Enter>` | Normal / Visual | Ir a la **siguiente fila** |
+| Navegación | `<S-Enter>` | Normal / Visual | Ir a la **fila anterior** |
+| Comando | `:CsvViewEnable` | Comando | Habilitar vista CSV |
+| Comando | `:CsvViewDisable` | Comando | Deshabilitar vista CSV |
+| Comando | `:CsvViewToggle` | Comando | Alternar vista CSV |
