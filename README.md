@@ -36,9 +36,14 @@ mv ~/.config/nvim.backup ~/.config/nvim
 Puedes seleccionar el tema al iniciar Neovim utilizando la variable de entorno `NVIM_THEME`:
 
 ```bash
-NVIM_THEME=carbonfox nvim  # tema principal - Tonos negro/gris profesionales
-NVIM_THEME=catppuccin nvim # tema secundario - colores con menos contraste
-NVIM_THEME=onedark nvim    # tercera opción - útil para distinguir entre varias terminales abiertas
+# tema principal - Tonos negro/gris profesionales
+NVIM_THEME=carbonfox nvim
+
+# tema secundario - colores con menos contraste
+NVIM_THEME=catppuccin nvim
+
+# tercera opción - útil para distinguir entre terminales abiertas
+NVIM_THEME=onedark nvim
 ```
 
 Usa el script `theme-selector.sh` para gestionar temas fácilmente:
@@ -66,7 +71,7 @@ Usa el script `theme-selector.sh` para gestionar temas fácilmente:
 | `yi"` Copiar entre comillas | `gr` Ir a referencias | `Shift + ↑↑` Ventana inferior | `<leader>rn` Renombrar variable | `<leader>lr` Mostrar referencias |
 | `ci"` Cambiar entre comillas | `gi` Ir a implementación | `Shift + ←←` Ventana izquierda | | `<leader>li` Mostrar info |
 | `di"` Eliminar entre comillas | `K` Documentación flotante | `Shift + →→` Ventana derecha | | `F5` Start / Continue debug |
-| | | `<S-Left>` Buffer anterior | | `F10` Step over |
+| | `<leader>ft` Terminal flotante | `<S-Left>` Buffer anterior | | `F10` Step over |
 | | | `<S-Right>` Buffer siguiente | | |
 | | | `<C-w>s` Split horizontal | | |
 | | | `<C-w>v` Split vertical | | |
