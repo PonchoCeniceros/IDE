@@ -9,7 +9,7 @@ Mi configuración personal de [LazyVim](https://github.com/LazyVim/LazyVim).
 ## Instalación limpia
 ```bash
 # clonar el repositorio
-git clone https://github.com/tu-usuario/fullstack-workspace.git ~/.config/nvim
+git clone https://github.com/tu-usuario/IDE.git ~/.config/nvim
 
 # iniciar neovim
 nvim
@@ -55,7 +55,7 @@ Usa el script `theme-selector.sh` para gestionar temas fácilmente:
 
 ## Cheatsheet
 
-| 📝 Edición de Código | 🔍 Búsqueda y Navegación | 🔄 Buffers y Ventanas | 🚀 Productividad | 🎯 LSP y Debug |
+| Edición de Código | Búsqueda y Navegación | Buffers y Ventanas | Productividad | LSP y Debug |
 |--------------------|------------------------|----------------------|-----------------|--------------|
 | `i` Insertar después del cursor | `<leader>ff` Buscar archivos | `<leader>bb` Buffer anterior | `<leader>w` Guardar archivo | `<leader>xx` Warnings/errores LSP |
 | `a` Insertar antes del cursor | `<leader>fg` Buscar texto (grep) | `Shift + →` Buffer siguiente | `<leader>q` Cerrar Neovim | `<leader>ls` Símbolos del buffer |
