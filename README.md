@@ -36,14 +36,13 @@ mv ~/.config/nvim.backup ~/.config/nvim
 Puedes seleccionar el tema al iniciar Neovim utilizando la variable de entorno `NVIM_THEME`:
 
 ```bash
-# tema principal - Tonos negro/gris profesionales
-NVIM_THEME=carbonfox nvim
-
-# tema secundario - colores con menos contraste
+# para quienes pasan horas frente a la pantalla y quieren
+# un entorno acogedor y visualmente cohesivo.
 NVIM_THEME=catppuccin nvim
 
-# tercera opción - útil para distinguir entre terminales abiertas
-NVIM_THEME=onedark nvim
+# para usuarios que buscan un aspecto serio, profesional
+# y de alto rendimiento.
+NVIM_THEME=carbonfox nvim
 ```
 
 Usa el script `theme-selector.sh` para gestionar temas fácilmente:
@@ -53,9 +52,8 @@ Usa el script `theme-selector.sh` para gestionar temas fácilmente:
 ./theme-selector.sh
 
 # cambiar tema predeterminado
-./theme-selector.sh carbonfox
-./theme-selector.sh onedark
 ./theme-selector.sh catppuccin
+./theme-selector.sh carbonfox
 ```
 
 ## Cheatsheet
@@ -109,3 +107,54 @@ Usa el script `theme-selector.sh` para gestionar temas fácilmente:
 | Comando | `:CsvViewEnable` | Comando | Habilitar vista CSV |
 | Comando | `:CsvViewDisable` | Comando | Deshabilitar vista CSV |
 | Comando | `:CsvViewToggle` | Comando | Alternar vista CSV |
+
+
+## Comandos de uso y utilidades para `.zshrc`
+
+```bash
+# -------------------------------------------------------------------
+# CONFIGURACIÓN DE NEOVIM (Temas Dinámicos)
+# -------------------------------------------------------------------
+
+# Acceso ultra rápido: Abre directamente con el tema Catppuccin
+alias nvc='NVIM_THEME=catppuccin nvim'
+
+# Acceso ultra rápido: Abre directamente con el tema Carbonfox (Nightfox)
+alias nvx='NVIM_THEME=carbonfox nvim'
+
+# Función 'nv': El comando maestro para Neovim.
+# Uso:
+#   'nv'          -> Abre Neovim normal.
+#   'nv c [arch]' -> Abre con Catppuccin.
+#   'nv x [arch]' -> Abre con Carbonfox.
+nv() {
+  if [[ "$1" == "c" ]]; then
+    shift # Elimina la 'c' de la lista de argumentos para que no se abra como un archivo
+    NVIM_THEME=catppuccin nvim "$@"
+  elif [[ "$1" == "x" ]]; then
+    shift # Elimina la 'x' de la lista de argumentos
+    NVIM_THEME=carbonfox nvim "$@"
+  else
+    # Si no hay prefijo, lanza nvim con los argumentos originales
+    nvim "$@"
+  fi
+}
+
+# -------------------------------------------------------------------
+# UTILIDADES DE TERMINAL
+# -------------------------------------------------------------------
+
+# 'ot' (Open Terminal): Abre una nueva instancia de iTerm2 en el directorio actual.
+# Mantiene la coherencia del tema si la variable NVIM_THEME ya existe.
+ot() {
+  # Verifica si la variable de entorno NVIM_THEME está definida (no está vacía)
+  if [ -n "$NVIM_THEME" ]; then
+    # La exporta para que las sesiones dentro de la nueva terminal la hereden
+    export NVIM_THEME=$NVIM_THEME
+  fi
+  # Abre la aplicación iTerm en la ruta actual (.)
+  open -a iTerm .
+}
+```
+
+

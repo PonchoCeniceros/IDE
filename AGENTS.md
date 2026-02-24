@@ -14,7 +14,6 @@ This is a Neovim configuration, not a typical software project. There are no tra
 nvim              # Start Neovim with default theme (carbonfox)
 NVIM_THEME=carbonfox nvim
 NVIM_THEME=catppuccin nvim
-NVIM_THEME=onedark nvim
 ```
 
 ### Lua Formatting (StyLua)
