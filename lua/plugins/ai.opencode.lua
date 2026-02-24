@@ -108,6 +108,7 @@ return {
         snacks = {
           win = {
             position = "bottom",
+            stack = false,
           },
         },
       },
