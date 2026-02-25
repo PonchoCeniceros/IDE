@@ -212,7 +212,51 @@ end
 
 ---
 
-## External Resources
+## OpenCode.nvim Configuration
+
+AI plugin based on [opencode.ai](https://opencode.ai) with custom prompts in Spanish.
+
+### Window Controls
+
+| Keymap | Mode | Action |
+|--------|------|--------|
+| `<leader>aa` | Normal | Toggle OpenCode window |
+| `<leader>av` | Normal | Open window at **bottom** |
+| `<leader>ah` | Normal | Open window at **right** |
+
+### Agent Interaction
+
+| Keymap | Mode | Action |
+|--------|------|--------|
+| `<leader>as` | Normal / Visual | Select code and send |
+| `<leader>ai` | Normal / Visual | Free question |
+| `<leader>aI` | Normal / Visual | Question with context (`@this`) |
+| `<leader>ab` | Normal / Visual | Ask about current file (`@file`) |
+| `<leader>ap` | Normal / Visual | Prompt with current context |
+
+### Specialized Work Functions
+
+| Keymap | Mode | Action | Description |
+|--------|------|--------|-------------|
+| `<leader>ape` | Normal / Visual | Explain code | Technical explanation of code functionality |
+| `<leader>apf` | Normal / Visual | Fix code | Fixes errors, typing issues, bad practices |
+| `<leader>apd` | Normal / Visual | Diagnose problems | Identifies production issues (race conditions, memory leaks, etc.) |
+| `<leader>apr` | Normal / Visual | Code review | Professional review with 1-10 rating |
+| `<leader>apt` | Normal / Visual | Generate tests | Creates complete unit tests |
+| `<leader>apo` | Normal / Visual | Optimize code | Improves performance and readability |
+
+> **Note:** All prompts are configured to respond in Spanish.
+
+### Custom Prompts
+
+The plugin uses custom Spanish prompts defined in `lua/plugins/ai.opencode.lua`. Each prompt is designed for specific tasks:
+
+- **explain**: Technical and structured explanation with design decisions
+- **fix**: Bug fixing, typing issues, silent bugs, bad practices
+- **diagnose**: Production-level diagnosis (race conditions, memory leaks, performance)
+- **review**: Professional code review with scoring
+- **test**: Unit test generation with edge cases
+- **optimize**: Performance, readability, and algorithmic complexity improvements
 
 - [LazyVim Documentation](https://lazyvim.github.io/)
 - [Neovim Lua Guide](https://neovim.io/doc/user/lua.html)

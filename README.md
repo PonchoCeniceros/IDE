@@ -78,20 +78,38 @@ Usa el script `theme-selector.sh` para gestionar temas fácilmente:
 
 ## OpenCode.nvim
 
+Plugin de IA basado en [opencode.ai](https://opencode.ai) con prompts personalizados en español.
+
+### keymaps de Ventana
+
 | Keymap | Modo | Acción |
-|------|------|-------|
-| `<leader>aa` | Normal | Toggle OpenCode |
+|--------|------|--------|
+| `<leader>aa` | Normal | Alternar ventana de OpenCode |
+| `<leader>av` | Normal | Abrir ventana en **bottom** (inferior) |
+| `<leader>ah` | Normal | Abrir ventana en **right** (derecha) |
+
+### keymaps de Trabajo con el Agente
+
+| Keymap | Modo | Acción |
+|--------|------|--------|
 | `<leader>as` | Normal / Visual | Seleccionar código y enviar |
 | `<leader>ai` | Normal / Visual | Pregunta libre |
 | `<leader>aI` | Normal / Visual | Pregunta con contexto (`@this`) |
 | `<leader>ab` | Normal / Visual | Preguntar sobre el archivo (`@file`) |
 | `<leader>ap` | Normal / Visual | Prompt con contexto actual |
-| `<leader>ape` | Normal / Visual | Explicar código |
-| `<leader>apf` | Normal / Visual | Arreglar código |
-| `<leader>apd` | Normal / Visual | Diagnosticar problemas |
-| `<leader>apr` | Normal / Visual | Code review |
-| `<leader>apt` | Normal / Visual | Generar tests |
-| `<leader>apo` | Normal / Visual | Optimizar código |
+
+### keymaps de Funciones Especializadas
+
+| Keymap | Modo | Acción | Descripción |
+|--------|------|--------|-------------|
+| `<leader>ape` | Normal / Visual | Explicar código | Explica qué hace el código de forma técnica |
+| `<leader>apf` | Normal / Visual | Arreglar código | Corrige errores, tipado y malas prácticas |
+| `<leader>apd` | Normal / Visual | Diagnosticar problemas | Identifica issues de producción (race conditions, memory leaks, etc.) |
+| `<leader>apr` | Normal / Visual | Code review | Revisión profesional con calificación 1-10 |
+| `<leader>apt` | Normal / Visual | Generar tests | Crea pruebas unitarias completas |
+| `<leader>apo` | Normal / Visual | Optimizar código | Mejora rendimiento y legibilidad |
+
+> **Nota:** Todos los prompts están configurados para responder en español.
 
 
 ## csvview.nvim
