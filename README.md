@@ -7,7 +7,7 @@
 Mi configuración personal de [LazyVim](https://github.com/LazyVim/LazyVim).
 
 <p align="center">
-  <img src="https://github.com/PonchoCeniceros/IDE/blob/ide/utils/imgs/ide.png">
+  <img src="https://github.com/PonchoCeniceros/IDE/blob/main/utils/imgs/ide.png">
 </p>
 
 
