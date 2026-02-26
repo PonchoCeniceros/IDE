@@ -218,6 +218,11 @@ sudo apt update
 sudo apt install certbot python3-certbot-nginx
 ```
 
+**Generación de certificados:**
+```bash
+sudo certbot --nginx -d tu-dominio.com
+```
+
 **Renovación automática:**
 ```bash
 sudo certbot renew --dry-run
