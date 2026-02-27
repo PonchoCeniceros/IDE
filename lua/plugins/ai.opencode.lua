@@ -149,6 +149,17 @@ return {
     {
       "<leader>aa",
       function()
+        vim.g.opencode_opts = vim.tbl_deep_extend("force", vim.g.opencode_opts or {}, {
+          provider = {
+            snacks = {
+              win = {
+                -- position = "right",
+                width = math.floor(vim.o.columns * 0.25),
+              },
+            },
+          },
+        })
+
         require("opencode").toggle()
       end,
       mode = { "n" },
@@ -180,6 +191,7 @@ return {
             snacks = {
               win = {
                 position = "right",
+                width = math.floor(vim.o.columns * 0.25),
               },
             },
           },
