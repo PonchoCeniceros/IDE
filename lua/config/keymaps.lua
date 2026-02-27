@@ -25,3 +25,6 @@ vim.keymap.set("n", "<S-Right>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 -- vim.keymap.set("n", "a", "i", { desc = "Insert before cursor" })
 -- vim.keymap.set("n", "I", "A", { desc = "Append at end of line" })
 -- vim.keymap.set("n", "A", "I", { desc = "Insert at start of line" })
+
+-- Quit all windows
+vim.keymap.set("n", "<leader>qq", "<cmd>qa!<cr>", { desc = "Quit all windows" })
