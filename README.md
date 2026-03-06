@@ -145,6 +145,10 @@ alias nvc='NVIM_THEME=catppuccin nvim'
 # Acceso ultra rápido: Abre directamente con el tema Carbonfox (Nightfox)
 alias nvx='NVIM_THEME=carbonfox nvim'
 
+# variaciones para el cambio dinamico de tema en Opencode
+alias nvc='sed -i "" "s/\"theme\": \".*\"/\"theme\": \"catppuccin-macchiato\"/" ~/.config/opencode/config.json && NVIM_THEME=catppuccin nvim'
+alias nvx='sed -i "" "s/\"theme\": \".*\"/\"theme\": \"carbonfox\"/" ~/.config/opencode/config.json && NVIM_THEME=carbonfox nvim'
+
 # Función 'nv': El comando maestro para Neovim.
 # Uso:
 #   'nv'          -> Abre Neovim normal.
