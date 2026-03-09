@@ -134,6 +134,14 @@ Plugin de IA basado en [opencode.ai](https://opencode.ai) con prompts personaliz
 
 ## Comandos de uso y utilidades para `.zshrc`
 
+<p align="center">
+  <img src="https://github.com/PonchoCeniceros/IDE/blob/main/utils/imgs/catppuccin.png">
+</p>
+
+<p align="center">
+  <img src="https://github.com/PonchoCeniceros/IDE/blob/main/utils/imgs/carbonfox.png">
+</p>
+
 ```bash
 # -------------------------------------------------------------------
 # CONFIGURACIÓN DE NEOVIM (Temas Dinámicos)
@@ -146,8 +154,17 @@ alias nvc='NVIM_THEME=catppuccin nvim'
 alias nvx='NVIM_THEME=carbonfox nvim'
 
 # variaciones para el cambio dinamico de tema en Opencode
-alias nvc='sed -i "" "s/\"theme\": \".*\"/\"theme\": \"catppuccin-macchiato\"/" ~/.config/opencode/config.json && NVIM_THEME=catppuccin nvim'
-alias nvx='sed -i "" "s/\"theme\": \".*\"/\"theme\": \"carbonfox\"/" ~/.config/opencode/config.json && NVIM_THEME=carbonfox nvim'
+# Alias para Catppuccin
+nvc() {
+  sed -i "" "s/\"theme\": \".*\"/\"theme\": \"catppuccin-macchiato\"/" ~/.config/opencode/config.json
+  NVIM_THEME=catppuccin nvim "$@"
+}
+
+# Alias para Carbonfox
+nvx() {
+  sed -i "" "s/\"theme\": \".*\"/\"theme\": \"carbonfox\"/" ~/.config/opencode/config.json
+  NVIM_THEME=carbonfox nvim "$@"
+}
 
 # Función 'nv': El comando maestro para Neovim.
 # Uso:
