@@ -61,6 +61,12 @@ Usa el script `theme-selector.sh` para gestionar temas fácilmente:
 ./theme-selector.sh carbonfox
 ```
 
+## Integración con `wezterm`
+
+```bash
+ln -s ~/.config/nvim/utils/wezterm/wezterm.lua ~/.wezterm.lua
+```
+
 ## Cheatsheet
 
 | Edición de Código | Búsqueda y Navegación | Buffers y Ventanas | Productividad | LSP y Debug |
@@ -134,14 +140,6 @@ Plugin de IA basado en [opencode.ai](https://opencode.ai) con prompts personaliz
 
 ## Comandos de uso y utilidades para `.zshrc`
 
-<p align="center">
-  <img src="https://github.com/PonchoCeniceros/IDE/blob/main/utils/imgs/catppuccin.png">
-</p>
-
-<p align="center">
-  <img src="https://github.com/PonchoCeniceros/IDE/blob/main/utils/imgs/carbonfox.png">
-</p>
-
 ```bash
 # -------------------------------------------------------------------
 # CONFIGURACIÓN DE NEOVIM (Temas Dinámicos)
@@ -198,7 +196,11 @@ ot() {
   fi
   # Abre la aplicación iTerm en la ruta actual (.)
   open -a iTerm .
+  # open -a WezTerm .
 }
+
+#
+# 'cls' (clean screen): Limpiar el buffer actual de la terminal
+#
+alias cls='clear'
 ```
-
-
