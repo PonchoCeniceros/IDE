@@ -140,27 +140,18 @@ Plugin de IA basado en [opencode.ai](https://opencode.ai) con prompts personaliz
 
 ## Comandos de uso y utilidades para `.zshrc`
 
+### Comandos para `neovim`
+
 ```bash
-# -------------------------------------------------------------------
-# CONFIGURACIÓN DE NEOVIM (Temas Dinámicos)
-# -------------------------------------------------------------------
-
 # Acceso ultra rápido: Abre directamente con el tema Catppuccin
-alias nvc='NVIM_THEME=catppuccin nvim'
-
-# Acceso ultra rápido: Abre directamente con el tema Carbonfox (Nightfox)
-alias nvx='NVIM_THEME=carbonfox nvim'
-
-# variaciones para el cambio dinamico de tema en Opencode
-# Alias para Catppuccin
 nvc() {
-  sed -i "" "s/\"theme\": \".*\"/\"theme\": \"catppuccin-macchiato\"/" ~/.config/opencode/config.json
+  sed -i "" "s/\"theme\": \".*\"/\"theme\": \"catppuccin-macchiato\"/" ~/.config/opencode/tui.json
   NVIM_THEME=catppuccin nvim "$@"
 }
 
-# Alias para Carbonfox
+# Acceso ultra rápido: Abre directamente con el tema Carbonfox (Nightfox)
 nvx() {
-  sed -i "" "s/\"theme\": \".*\"/\"theme\": \"carbonfox\"/" ~/.config/opencode/config.json
+  sed -i "" "s/\"theme\": \".*\"/\"theme\": \"carbonfox\"/" ~/.config/opencode/tui.json
   NVIM_THEME=carbonfox nvim "$@"
 }
 
@@ -171,36 +162,41 @@ nvx() {
 #   'nv x [arch]' -> Abre con Carbonfox.
 nv() {
   if [[ "$1" == "c" ]]; then
-    shift # Elimina la 'c' de la lista de argumentos para que no se abra como un archivo
+    shift
     NVIM_THEME=catppuccin nvim "$@"
   elif [[ "$1" == "x" ]]; then
-    shift # Elimina la 'x' de la lista de argumentos
+    shift
     NVIM_THEME=carbonfox nvim "$@"
   else
-    # Si no hay prefijo, lanza nvim con los argumentos originales
     nvim "$@"
   fi
 }
+```
 
-# -------------------------------------------------------------------
-# UTILIDADES DE TERMINAL
-# -------------------------------------------------------------------
+### Utilidades para la terminal
 
-# 'ot' (Open Terminal): Abre una nueva instancia de iTerm2 en el directorio actual.
-# Mantiene la coherencia del tema si la variable NVIM_THEME ya existe.
+```bash
+# 'gtnv' (Go To Neovim) Dirigirme a la configuracion de mi IDE Lazyvim
+alias gtnv="cd ~/.config/nvim"
+
+# 'gtoc' (Go To Opencode) Dirigirme a la configuracion de Opencode
+alias gtoc="cd ~/.config/opencode"
+
+# 'cls' (Clear screen) Limpiar el buffer de la session actual
+alias cls="clear"
+
+# 'ot' (Open Terminal): Abre una nueva instancia de iTerm2
+# en el directorio actual.
 ot() {
-  # Verifica si la variable de entorno NVIM_THEME está definida (no está vacía)
   if [ -n "$NVIM_THEME" ]; then
-    # La exporta para que las sesiones dentro de la nueva terminal la hereden
     export NVIM_THEME=$NVIM_THEME
   fi
-  # Abre la aplicación iTerm en la ruta actual (.)
   open -a iTerm .
-  # open -a WezTerm .
 }
 
-#
-# 'cls' (clean screen): Limpiar el buffer actual de la terminal
-#
-alias cls='clear'
+# 'gtz' (Go To .zshrc) Acceder a la configuracion en .zshrc
+alias gtz="nv ~/.zshrc"
+
+# 'srcz' (Source .zshrc) Guardar la configuracion en .zshrc
+alias srcz="source .zshrc"
 ```
