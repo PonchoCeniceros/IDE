@@ -26,10 +26,10 @@ config.window_decorations = "RESIZE"
 -- Añadir un poco de aire (padding)
 -- para que el código no toque los bordes
 config.window_padding = {
-  left = 10,
-  right = 10,
-  top = 10,
-  bottom = 10,
+  left = 15,
+  right = 15,
+  top = 15,
+  -- bottom = 10,
 }
 
 -- Define el ancho (columnas) y alto (filas)

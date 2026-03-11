@@ -64,7 +64,7 @@ Usa el script `theme-selector.sh` para gestionar temas fácilmente:
 ## Integración con `wezterm`
 
 ```bash
-ln -s ~/.config/nvim/utils/wezterm/wezterm.lua ~/.wezterm.lua
+ln -s ~/.config/nvim/utils/wezterm/.wezterm.lua ~/.wezterm.lua
 ```
 
 ## Cheatsheet
